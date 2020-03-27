@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+%\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage[nottoc]{tocbibind}
+\geometry{margin=2cm}
+%set the indentation length to zero
+\setlength{\parindent}{0pt}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=Black,
+  filecolor=TUMBlue,      
+    urlcolor=TUMBlue,
+    citecolor=TUMBlue,
+}
+
+
+
+\urlstyle{same}
+\graphicspath{ {./Figure/} }
+\rmfamily
+%set your name here
+\newcommand*{\getAuthor}{Author}
+%set your Submission Date here
+\newcommand*{\getSubDate}{Submission date}
+\newcommand*{\getSubLoc}{Munich}
+\definecolor{TUMBlue}{cmyk}{1,0.43,0,0}
+\newcommand\AtPageUpperRight[1]{\AtPageUpperLeft{%
+   \makebox[\paperwidth][r]{#1}}}
+
+\title{TUM-Document-Latex}
+
+\author{llqqyyllqqyy }
+\date{March 2020}
+
+\begin{document}
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+   \node[anchor=north east,inner sep=20pt] at (current page.north east)
+              {\includegraphics[scale=0.06]{logo}};
+\end{tikzpicture}
+\vspace{50mm}
+
+\centering
+{\Huge\bfseries
+Title
+}
+
+\vspace{130mm}
+\large{
+\begin{tabular}{l l}
+    \bfseries{Author}:          & \getAuthor \\
+    \bfseries{Supervisor}:      & Supervisor name \\
+    \bfseries{Advisor}:         & Advisor\\
+    \bfseries{Submission Date}: & Submission Date \\
+  \end{tabular}
+  }
+\end{titlepage}
+
+\input{Acknowledge}
+
+\tableofcontents
+
+\pagenumbering{Roman}%
+%\tableofcontents%
+
+
+\clearpage
+\listoffigures
+\clearpage
+\listoftables{}
+\clearpage
+\addcontentsline{toc}{section}{Listings}
+\lstlistoflistings
+\clearpage
+\addcontentsline{toc}{section}{Abstract}
+\section*{Abstract}
+\input{Abstract.tex}
+\clearpage
+
+\pagenumbering{arabic}%
+
+\section{Introduction}
+\subsection{Subsection}
+\subsubsection{Subsubsection}
+\paragraph{paragraph}
+Cite here \cite{latex}
+
+
+\section{Figure}
+\input{Figure}
+
+\clearpage
+\section{Table}
+\input{Table.tex}
+\clearpage
+
+\section{Math}
+\input{Math}
+
+\clearpage
+\renewcommand\bibname{References}
+%APA Format Reference
+\bibliographystyle{apalike}
+\bibliography{reference.bib}
+\addcontentsline{toc}{section}{Appendix}
+\appendix
+\end{document}
